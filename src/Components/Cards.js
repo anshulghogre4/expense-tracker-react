@@ -5,32 +5,38 @@ import { currFormatter } from "../utils";
 
 
 
-const Cards = ({title,amount,maxAmount}) => {
+const Cards = ({title,amount,maxAmount,onAddExpenseClick}) => {
 
 
     const progressBarChanger = (amount,maxAmount)=>{
 
         const ratio = amount/maxAmount;
-        if (ratio < 0.5)
+        if (ratio < 0.5 && ratio > 0.0)
         {
         return `bg-lime-500`;
-        } else  if (ratio < 0.75)
+        } else  if (ratio < 0.75 && ratio > 0.50)
          {
             return 'bg-amber-500';
-        } else{
-            return 'bg-red-500	'
+        } else if(ratio > 0.75){
+            return 'bg-red-500'
         }
        
-        
     }
-
+      const overSpendWarningColor = ()=>{
+        if (amount>maxAmount) {
+           return `bg-red-100`;
+        } else {
+          return `bg-white`;  
+        }
+      }
+      
 
 
   return (
     <div className='flex justify-center items-center '>
       
       
-<div className="w-[40rem]  p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 my-[1rem]">
+<div className={`w-[40rem]  p-6 ${overSpendWarningColor()} border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 my-[1rem]`}>
 
     <div className='flex flex-row justify-between'>
         <div className='text-2xl font-semibold'>{title}</div>
@@ -47,7 +53,7 @@ const Cards = ({title,amount,maxAmount}) => {
 
     <div className='flex justify-end'>
     <div className=' flex flex-row items-center space-x-[1rem]  '>
-        <button className='bg-[#c0392b] text-slate-100 font-semibold rounded px-[0.5rem] py-[0.3rem]'>Add Expense</button>
+        <button onClick={onAddExpenseClick} className='bg-[#c0392b] text-slate-100 font-semibold rounded px-[0.5rem] py-[0.3rem]'>Add Expense</button>
         <button className='bg-gray-900 text-slate-100 font-semibold rounded px-[0.5rem] py-[0.3rem]'>View Expenses</button>
     </div>
     </div>
