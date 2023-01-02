@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./Components/Navbar";
+import Cards from "./Components/Cards";
+import "./App.css"
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      
+      <div className="flex flex-row justify-around items-center mx-[20rem]   ">
+            <h1 className="text-[2rem] font-bold">Expenses</h1>
+       <div className="flex flex-row justify-around items-center space-x-4">
+        <button className="bg-[#bdc3c7] text-gray-900 font-semibold rounded px-[0.5rem] py-[0.3rem]"> Add Budget</button>
+        <button className="bg-[#c0392b] text-[#f5f6fa] font-semibold  rounded px-[0.5rem] py-[0.3rem] ">Add Expense</button>
+        </div>
+      </div>
+      <Cards/>
     </div>
   );
 }
