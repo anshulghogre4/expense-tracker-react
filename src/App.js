@@ -18,7 +18,7 @@ function App() {
         <button className="bg-[#c0392b] text-[#f5f6fa] font-semibold  rounded px-[0.5rem] py-[0.3rem] ">Add Expense</button>
         </div>
       </div>
-      <Cards  title={"Trial"} amount={900} maxAmount={1000} />
+      <Cards  title={"Trial"} amount={50} maxAmount={1000} />
     </div>
   );
 }

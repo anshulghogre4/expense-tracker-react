@@ -37,11 +37,13 @@ const Cards = ({title,amount,maxAmount}) => {
         <div  > { currFormatter.format(amount)} / {currFormatter.format(maxAmount)}</div>
     </div>
 
+
     <div className="relative pt-1">
   <div className={`overflow-hidden h-2 mb-4 text-xs flex rounded bg-slate-200`}>
     <div style={{ width: `${(amount/maxAmount)*100}%` }}  className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${progressBarChanger(amount,maxAmount)}`}></div>
   </div>
     </div>
+
 
     <div className='flex justify-end'>
     <div className=' flex flex-row items-center space-x-[1rem]  '>
