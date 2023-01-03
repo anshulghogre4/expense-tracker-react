@@ -32,10 +32,10 @@ const AddBudgetModel = ({show, onClose,}) => {
 
   return (
     <div className='fixed inset-0 bg-black/[0.4] flex justify-center items-center' id="closeAddModal" onClose={handleClose} >
-            <div className="w-[40rem] flex flex-col">
+            <div className="w-[21.5rem] md:w-[40rem] flex flex-col">
                 <button className='scale-150 text-white place-self-end mb-[0.5rem]' onClick={()=>onClose()} ><RiCloseLine/></button>
             <div className="bg-white p-3 rounded ">
-         <h2 className='text-[2rem] font-medium mb-4'>New budget</h2>           
+         <h2 className=' text-xl md:text-[1.5rem] font-bold mb-4'>New budget</h2>           
     <form  className="flex flex-col" onSubmit={handleSubmit}>
     <div className="mb-6">
     <label htmlFor="text" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Budget Name</label>
@@ -46,7 +46,7 @@ const AddBudgetModel = ({show, onClose,}) => {
     <input type="number" id="number" ref={maxSpendRef} step={0.01} min={0} placeholder ="Enter max amount" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
     </div>
   
-    <button type="submit"  className=" bg-[#bdc3c7] text-gray-900 font-semibold hover:bg-gray-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300  rounded text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 place-self-end ">Add budget</button>
+    <button type="submit"  className=" bg-[#bdc3c7] text-gray-900 font-semibold hover:bg-gray-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300  rounded text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 place-self-end ">Add Budget</button>
     </form>
 
             </div>

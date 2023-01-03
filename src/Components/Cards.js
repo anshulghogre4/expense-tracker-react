@@ -36,11 +36,11 @@ const Cards = ({title,amount,maxAmount,onAddExpenseClick,onViewExpenseClick }) =
     <div className='flex justify-center items-center '>
       
       
-<div className={`w-[40rem]  p-6 ${overSpendWarningColor()} border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 my-[1rem]`}>
+<div className={` w-[21.5rem] md:w-[40rem]  p-6 ${overSpendWarningColor()} border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 my-[1rem]`}>
 
     <div className='flex flex-row justify-between'>
-        <div className='text-2xl font-semibold'>{title}</div>
-        <div  > { currFormatter.format(amount)} / {currFormatter.format(maxAmount)}</div>
+        <div className=' text-xl md:text-2xl font-semibold'>{title}</div>
+        <div> <span className='md:text-xl'>{ currFormatter.format(amount)} / {currFormatter.format(maxAmount)}</span></div>
     </div>
 
 
@@ -53,8 +53,8 @@ const Cards = ({title,amount,maxAmount,onAddExpenseClick,onViewExpenseClick }) =
 
     <div className='flex justify-end'>
     <div className=' flex flex-row items-center space-x-[1rem]  '>
-        <button onClick={onAddExpenseClick} className='bg-[#c0392b] text-slate-100 font-semibold rounded px-[0.5rem] py-[0.3rem]'>Add Expense</button>
-        <button onClick={onViewExpenseClick} className='bg-gray-900 text-slate-100 font-semibold rounded px-[0.5rem] py-[0.3rem]'>View Expenses</button>
+        <button onClick={onAddExpenseClick} className='bg-[#c0392b] text-slate-100 md:font-semibold font-bold text-[0.7rem] md:text-[1rem] rounded px-[0.5rem] py-[0.3rem]'>Add Expense</button>
+        <button onClick={onViewExpenseClick} className='bg-gray-900 text-slate-100 md:font-semibold font-bold text-[0.7rem] md:text-[1rem] rounded px-[0.5rem] py-[0.3rem]'>View Expenses</button>
     </div>
     </div>
 </div>

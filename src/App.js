@@ -11,6 +11,7 @@ import TotalExpense from "./Components/TotalExpense";
 
 
 
+
 function App() {
 
   const [showAddBudgetModel, setShowAddBudgetModel] = useState(false)
@@ -32,11 +33,11 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <div className="flex flex-row justify-around items-center mx-[20rem]   ">
-            <h1 className="text-[2rem] font-bold">Expenses</h1>
-       <div className="flex flex-row justify-around items-center space-x-4 mr-8">
-        <button className="bg-[#bdc3c7] text-gray-900 font-semibold rounded px-[0.5rem] py-[0.3rem]" onClick={()=>setShowAddBudgetModel(true)}> Add Budget</button>
-        <button className="bg-[#c0392b] text-[#f5f6fa] font-semibold  rounded px-[0.5rem] py-[0.3rem]" onClick={()=>openAddExpenseModal()}>Add Expense</button>
+      <div className="flex flex-row justify-around items-center xl:mx-[16.5rem] 2xl:mx-[35rem]  md:mx-[8rem]   ">
+            <h1 className=" text-[1.2rem] md:text-[2rem] font-bold">Your Expenses</h1>
+       <div className="flex flex-row justify-around items-center space-x-4  ">
+        <button className="bg-[#bdc3c7] text-gray-900 md:font-semibold font-bold text-[0.7rem] md:text-[1rem] rounded px-[0.5rem] py-[0.3rem]" onClick={()=>setShowAddBudgetModel(true)}> Add Budget</button>
+        <button className="bg-[#c0392b] text-[#f5f6fa] md:font-semibold font-bold text-[0.7rem] md:text-[1rem]  rounded px-[0.5rem] py-[0.3rem]" onClick={()=>openAddExpenseModal()}>Add Expense</button>
         </div>
       </div>
       {budgets.map(budget=>{
@@ -52,7 +53,6 @@ function App() {
       onClose={()=>setShowAddExpenseModel(false)}
       />
       <ViewExpenseModel budgetId={viewExpenseModelForABudgetId} onClose={setViewExpenseModelForABudgetId} />
-      
     </div>
   );
 }

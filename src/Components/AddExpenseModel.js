@@ -16,7 +16,7 @@ const AddExpenseModel = ({show, onClose,defaultBudgetId}) => {
 
     const handleClose =(e)=>{
         if(e.target.id ==="closeAddModal")
-         {onClose();}
+         {onClose()}
     }
 
     const handleSubmit=(e)=>{ 
@@ -36,10 +36,10 @@ const AddExpenseModel = ({show, onClose,defaultBudgetId}) => {
 
   return (
     <div className='fixed inset-0 bg-black/[0.4] flex justify-center items-center' id="closeAddModal" onClose={handleClose} >
-            <div className="w-[40rem] flex flex-col">
+            <div className=" w-[21.5rem] md:w-[40rem] flex flex-col">
                 <button className='scale-150 text-white place-self-end mb-[0.5rem]' onClick={()=>onClose()} ><RiCloseLine/></button>
             <div className="bg-white p-3 rounded ">
-            <h2 className='text-[2rem] font-medium mb-4'>New Expense</h2>
+            <h2 className=' text-xl md:text-[1.5rem] font-semibold mb-4'>New Expense</h2>
     <form  className="flex flex-col" onSubmit={handleSubmit} >
     <div className="mb-6">
     <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
