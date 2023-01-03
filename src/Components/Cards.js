@@ -5,16 +5,16 @@ import { currFormatter } from "../utils";
 
 
 
-const Cards = ({title,amount,maxAmount,onAddExpenseClick}) => {
+const Cards = ({title,amount,maxAmount,onAddExpenseClick,onViewExpenseClick }) => {
 
 
     const progressBarChanger = (amount,maxAmount)=>{
 
         const ratio = amount/maxAmount;
-        if (ratio < 0.5 && ratio > 0.0)
+        if (ratio <= 0.5 && ratio > 0.0)
         {
         return `bg-lime-500`;
-        } else  if (ratio < 0.75 && ratio > 0.50)
+        } else  if (ratio <= 0.75 && ratio > 0.50)
          {
             return 'bg-amber-500';
         } else if(ratio > 0.75){
@@ -23,7 +23,7 @@ const Cards = ({title,amount,maxAmount,onAddExpenseClick}) => {
        
     }
       const overSpendWarningColor = ()=>{
-        if (amount>maxAmount) {
+        if (amount>=maxAmount) {
            return `bg-red-100`;
         } else {
           return `bg-white`;  
@@ -54,7 +54,7 @@ const Cards = ({title,amount,maxAmount,onAddExpenseClick}) => {
     <div className='flex justify-end'>
     <div className=' flex flex-row items-center space-x-[1rem]  '>
         <button onClick={onAddExpenseClick} className='bg-[#c0392b] text-slate-100 font-semibold rounded px-[0.5rem] py-[0.3rem]'>Add Expense</button>
-        <button className='bg-gray-900 text-slate-100 font-semibold rounded px-[0.5rem] py-[0.3rem]'>View Expenses</button>
+        <button onClick={onViewExpenseClick} className='bg-gray-900 text-slate-100 font-semibold rounded px-[0.5rem] py-[0.3rem]'>View Expenses</button>
     </div>
     </div>
 </div>

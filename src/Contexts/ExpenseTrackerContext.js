@@ -45,7 +45,15 @@ export const ExpenseTrackerProvider=({children}) =>{
 
 
    const  deleteBudget =({id})=>{
+    setExpenses(prevExpenses=>{
+        return prevExpenses.map(expense=>{
+            if (expense.budgetId !== id) {
+                return expense;
+            }
 
+            return{...expense,budgetId:null,amount:null}
+        })
+    })
     setBudgets(prevBudgets=>{
         return prevBudgets.filter(budget => budget.id !== id)
     })

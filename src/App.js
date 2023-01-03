@@ -4,7 +4,9 @@ import Navbar from "./Components/Navbar";
 import Cards from "./Components/Cards";
 import AddBudgetModel from "./Components/AddBudgetModel";
 import AddExpenseModel from "./Components/AddExpenseModel";
+import ViewExpenseModel from "./Components/ViewExpenseModel";
 import { useExpenseTracker } from "./Contexts/ExpenseTrackerContext";
+import TotalExpense from "./Components/TotalExpense";
 
 
 
@@ -13,7 +15,10 @@ function App() {
 
   const [showAddBudgetModel, setShowAddBudgetModel] = useState(false)
   const [showAddExpenseModel, setShowAddExpenseModel] = useState(false)
+ 
+  const [viewExpenseModelForABudgetId,setViewExpenseModelForABudgetId] = useState()
   const [addExpenseForABudgetId,setAddExpenseForABudgetId] = useState()
+
   const {budgets,allExpensesForABudget} = useExpenseTracker();
 
 
@@ -21,6 +26,7 @@ function App() {
     setShowAddExpenseModel(true);
     setAddExpenseForABudgetId(budgetId);
   }
+ 
  
 
   return (
@@ -37,13 +43,16 @@ function App() {
 
           const expenseForABudget = allExpensesForABudget(budget.id).reduce((total,expense)=>total+expense.amount,0)
 
-          return (<Cards key={budget.id} title={budget.budgetName?.budgetName} amount={expenseForABudget} maxAmount={budget.budgetName?.max} onAddExpenseClick={()=>openAddExpenseModal(budget.id)} />)
+          return (<Cards key={budget.id} title={budget.budgetName?.budgetName} amount={expenseForABudget} maxAmount={budget.budgetName?.max} onAddExpenseClick={()=>openAddExpenseModal(budget.id)}
+          onViewExpenseClick={()=>setViewExpenseModelForABudgetId(budget.id)} />)
 })}
-      
+       <TotalExpense/>
       <AddBudgetModel show={showAddBudgetModel} onClose={()=>setShowAddBudgetModel(false)}/>
       <AddExpenseModel show={showAddExpenseModel} defaultBudgetId={addExpenseForABudgetId} 
       onClose={()=>setShowAddExpenseModel(false)}
       />
+      <ViewExpenseModel budgetId={viewExpenseModelForABudgetId} onClose={setViewExpenseModelForABudgetId} />
+      
     </div>
   );
 }
