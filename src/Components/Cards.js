@@ -35,22 +35,24 @@ const Cards = ({title,amount,maxAmount,onAddExpenseClick,onViewExpenseClick }) =
   return (
     <div className='flex justify-center items-center '>
       
-      
-<div className={` w-[21.5rem] md:w-[40rem]  p-6 ${overSpendWarningColor()} border border-gray-200 rounded-lg shadow-md  my-[1rem]`}>
-
+      {/* Whole card length and changing color of whole card on over expend over a budget */}
+    <div className={` w-[21.5rem] md:w-[40rem]  p-6 ${overSpendWarningColor()} border border-gray-200 rounded-lg shadow-md  my-[1rem]`}>
+     
     <div className='flex flex-row justify-between'>
+        {/* Cause of Expense or budget name */}
         <div className=' text-xl md:text-2xl font-semibold'>{title}</div>
+         {/* importing currency formatter and utilizing here to display amount in INR */}
         <div> <span className='md:text-xl'>{ currFormatter.format(amount)} / {currFormatter.format(maxAmount)}</span></div>
     </div>
 
-
+    {/* progress bar with chnanging color at 50%,75%*/}
     <div className="relative pt-1">
   <div className={`overflow-hidden h-2 mb-4 text-xs flex rounded bg-slate-200`}>
     <div style={{ width: `${(amount/maxAmount)*100}%` }}  className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${progressBarChanger(amount,maxAmount)}`}></div>
   </div>
     </div>
 
-
+      {/* Buttons for Add Expense & View Expense of a perticular budget card */}
     <div className='flex justify-end'>
     <div className=' flex flex-row items-center space-x-[1rem]  '>
         <button onClick={onAddExpenseClick} className='bg-[#c0392b] text-slate-100 md:font-semibold font-bold text-[0.7rem] md:text-[1rem] rounded px-[0.5rem] py-[0.3rem]'>Add Expense</button>

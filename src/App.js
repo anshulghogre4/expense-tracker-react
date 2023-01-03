@@ -13,13 +13,13 @@ import TotalExpense from "./Components/TotalExpense";
 
 
 function App() {
-
+    //  to toggle Add Budget model , on true it'll appear
   const [showAddBudgetModel, setShowAddBudgetModel] = useState(false)
+    //  to toggle Add Expense model,, on true it'll appear
   const [showAddExpenseModel, setShowAddExpenseModel] = useState(false)
- 
+
   const [viewExpenseModelForABudgetId,setViewExpenseModelForABudgetId] = useState()
   const [addExpenseForABudgetId,setAddExpenseForABudgetId] = useState()
-
   const {budgets,allExpensesForABudget} = useExpenseTracker();
 
 
@@ -33,6 +33,8 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
+
+          {/*  Expenses heading  and Add Budget & add Expense Buttons */}
       <div className="flex flex-row justify-around items-center xl:mx-[16.5rem] 2xl:mx-[35rem]  md:mx-[8rem]   ">
             <h1 className=" text-[1.2rem] md:text-[2rem] font-bold">Your Expenses</h1>
        <div className="flex flex-row justify-around items-center space-x-4  ">
@@ -40,18 +42,25 @@ function App() {
         <button className="bg-[#c0392b] text-[#f5f6fa] md:font-semibold font-bold text-[0.7rem] md:text-[1rem]  rounded px-[0.5rem] py-[0.3rem]" onClick={()=>openAddExpenseModal()}>Add Expense</button>
         </div>
       </div>
+
+       {/* Mapping Card with map function */}
       {budgets.map(budget=>{
-
           const expenseForABudget = allExpensesForABudget(budget.id).reduce((total,expense)=>total+expense.amount,0)
-
           return (<Cards key={budget.id} title={budget.budgetName?.budgetName} amount={expenseForABudget} maxAmount={budget.budgetName?.max} onAddExpenseClick={()=>openAddExpenseModal(budget.id)}
           onViewExpenseClick={()=>setViewExpenseModelForABudgetId(budget.id)} />)
-})}
-       <TotalExpense/>
+        })}
+
+
+       {/* Card to show total expenses */}
+       <TotalExpense/> 
+
+       {/* Add budget Model */}
       <AddBudgetModel show={showAddBudgetModel} onClose={()=>setShowAddBudgetModel(false)}/>
+       {/* Add Expense Model */}
       <AddExpenseModel show={showAddExpenseModel} defaultBudgetId={addExpenseForABudgetId} 
       onClose={()=>setShowAddExpenseModel(false)}
       />
+      {/* View Expenses for a perticular budget or budgetId */}
       <ViewExpenseModel budgetId={viewExpenseModelForABudgetId} onClose={setViewExpenseModelForABudgetId} />
     </div>
   );
