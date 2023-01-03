@@ -36,7 +36,7 @@ const Cards = ({title,amount,maxAmount,onAddExpenseClick,onViewExpenseClick }) =
     <div className='flex justify-center items-center '>
       
       
-<div className={` w-[21.5rem] md:w-[40rem]  p-6 ${overSpendWarningColor()} border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 my-[1rem]`}>
+<div className={` w-[21.5rem] md:w-[40rem]  p-6 ${overSpendWarningColor()} border border-gray-200 rounded-lg shadow-md  my-[1rem]`}>
 
     <div className='flex flex-row justify-between'>
         <div className=' text-xl md:text-2xl font-semibold'>{title}</div>
