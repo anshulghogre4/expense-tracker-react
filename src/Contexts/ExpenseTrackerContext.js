@@ -33,7 +33,9 @@ export const ExpenseTrackerProvider=({children}) =>{
         return expenses.filter(exp => exp.budgetId === budgetId)
      };
 
-     //adding budget 
+     /*
+     Addind budget with providing unique id to it and giving budget name and max amount for the budget
+     */
    const addBudget =(budgetName, max)=>{
     setBudgets(prevBudgets=>{
         if (prevBudgets.find(budget=> budget.budgetName === budgetName)) {
@@ -43,7 +45,9 @@ export const ExpenseTrackerProvider=({children}) =>{
     })
    }
 
-
+    /*
+     Addind Expense with providing unique id to it, giving budget Id so that it can track specific budget,description of a expense and amount for the budget
+     */
     const  addExpense = ({description,amount,budgetId})=>{
         setExpenses(prevExpenses=>{
             return [...prevExpenses,{id: v4(), description, amount, budgetId}]
@@ -53,23 +57,19 @@ export const ExpenseTrackerProvider=({children}) =>{
 
 
 
+    //deleting budget as well as expenses related to it
    const  deleteBudget =({id})=>{
     setExpenses(prevExpenses=>{
-        return prevExpenses.map(expense=>{
-            if (expense.budgetId !== id) {
-                return expense;
-            }
-
-            return{...expense,budgetId:null,amount:null}
-        })
+        return prevExpenses.filter(expense=>expense.budgetId !== id)
     })
     setBudgets(prevBudgets=>{
         return prevBudgets.filter(budget => budget.id !== id)
     })
-
-
    }
 
+
+
+    //deleteing the specific expense for the budget
     const deleteExpense =({id})=>{
         setExpenses(prevExpenses=>{
             return prevExpenses.filter(expense => expense.id !== id)
@@ -77,7 +77,7 @@ export const ExpenseTrackerProvider=({children}) =>{
     }
 
 
-
+    //returning the Provider with all the above values inside the child that will bes hydrated to the App.js 
     return (
         <ExpenseTrackerContext.Provider value={{
             budgets,

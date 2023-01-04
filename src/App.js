@@ -7,6 +7,7 @@ import AddExpenseModel from "./Components/AddExpenseModel";
 import ViewExpenseModel from "./Components/ViewExpenseModel";
 import { useExpenseTracker } from "./Contexts/ExpenseTrackerContext";
 import TotalExpense from "./Components/TotalExpense";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -32,8 +33,10 @@ function App() {
 
   return (
     <div className="App">
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}/>   
       <Navbar/>
-
           {/*  Expenses heading  and Add Budget & add Expense Buttons */}
       <div className="flex flex-row justify-around items-center xl:mx-[16.5rem] 2xl:mx-[35rem]  md:mx-[8rem]   ">
             <h1 className=" text-[1.2rem] md:text-[2rem] font-bold">Your Expenses</h1>
