@@ -18,12 +18,14 @@ function App() {
   const [showAddBudgetModel, setShowAddBudgetModel] = useState(false)
     //  to toggle Add Expense model,, on true it'll appear
   const [showAddExpenseModel, setShowAddExpenseModel] = useState(false)
-
+    // state to view perticular views of expenses respect to budget ID
   const [viewExpenseModelForABudgetId,setViewExpenseModelForABudgetId] = useState()
+    // adding the expense respect to the budget ID
   const [addExpenseForABudgetId,setAddExpenseForABudgetId] = useState()
+  // destructuring the styates and function from the ContextAPI
   const {budgets,allExpensesForABudget} = useExpenseTracker();
 
-
+  //function for to set budget ID and turn up the modal for the expense when cliked on add expense for the respective budget
   const openAddExpenseModal=(budgetId)=>{
     setShowAddExpenseModel(true);
     setAddExpenseForABudgetId(budgetId);
@@ -33,6 +35,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* Toaster notifications */}
       <Toaster
         position="bottom-right"
         reverseOrder={false}/>   
