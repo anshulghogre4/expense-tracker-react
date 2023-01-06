@@ -60,7 +60,7 @@ const Cards = ({title,amount,maxAmount,onAddExpenseClick,onViewExpenseClick }) =
         {/*  props passed for adding expense for the respective budgetID  */}
         <button onClick={onAddExpenseClick} className='bg-[#c0392b] text-slate-100 md:font-semibold font-bold text-[0.7rem] md:text-[1rem] rounded px-[0.5rem] py-[0.3rem]'>Add Expense</button>
         {/*  props passed for to view expenses for the respective budgetID  */}
-        <button onClick={onViewExpenseClick} className='bg-gray-900 text-slate-100 md:font-semibold font-bold text-[0.7rem] md:text-[1rem] rounded px-[0.5rem] py-[0.3rem]'>View Expenses</button>
+        <button onClick={onViewExpenseClick} className='bg-gray-900 text-slate-100 md:font-semibold font-bold text-[0.7rem] md:text-[1rem] rounded px-[0.5rem] py-[0.3rem]'>View/Delete Expenses</button>
     </div>
     </div>
 </div>
