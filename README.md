@@ -15,3 +15,19 @@
 - Learned how to make custom modal in tailwind CSS
 
 ---
+
+## ScreenShots
+
+![pic1]()
+
+## Time Taken
+
+---
+
+- 2 Days taken for this to make
+
+---
+
+## Live Link
+
+- [Link](https://expense-tracker-react-one.vercel.app/)

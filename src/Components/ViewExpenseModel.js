@@ -66,7 +66,7 @@ const ViewExpenseModel = ({budgetId, onClose,}) => {
                            <h4>{expense.description}</h4>
                             <div className='flex flex-row justify-center items-center space-x-4'>
                                 {/* using currecy formatter from the utils.js */}
-                               <h3>{currFormatter.format(expense.amount)}</h3> \
+                               <h3>{currFormatter.format(expense.amount)}</h3> 
                                {/* deleting expense and notifying the same */}
                                <button onClick={()=>(deleteExpense(expense),notify())} className='bg-white border border-2 border-red-300 text-gray-500  text-gray-900 md:font-semibold font-bold text-[0.7rem] md:text-[1rem] hover:bg-red-200  rounded py-[0.3rem] px-[0.5rem]'><RiCloseLine /></button>
                             </div>
