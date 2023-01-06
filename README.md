@@ -13,12 +13,14 @@
 - Learned how to make custom hooks
 - Learned about the useRef()
 - Learned how to make custom modal in tailwind CSS
+- Learned how to format currency
 
 ---
 
 ## ScreenShots
 
-![pic1]()
+![pic1](./src/images/ssone.png)
+![pic2](./src/images/webres.png)
 
 ## Time Taken
 
@@ -31,3 +33,14 @@
 ## Live Link
 
 - [Link](https://expense-tracker-react-one.vercel.app/)
+
+---
+
+## Tech used
+
+---
+
+- ReactJs
+- HTML& TailwindCSS + TailwindCSS Components
+- React-icons
+- react-hot-toast

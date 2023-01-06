@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { currFormatter } from "../utils";
+import { toast } from 'react-hot-toast';
 
 
 
@@ -26,7 +27,9 @@ const Cards = ({title,amount,maxAmount,onAddExpenseClick,onViewExpenseClick }) =
       // if amount is greater than the max amount decided for the budget, card color will be changed  to the red
       const overSpendWarningColor = ()=>{
         if (amount>=maxAmount) {
-           return `bg-red-100`;
+        
+          return `bg-red-100`;
+
         } else {
           return `bg-white`;  
         }
